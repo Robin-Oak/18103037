@@ -11,7 +11,7 @@ class Graph
 		{ 
 			src = dest = wt = 0; 
 		} 
-	}; 
+	};
 
 	int V, E; 
 	Edge edge[]; 
@@ -65,47 +65,23 @@ class Graph
 
 	public static void main(String[] args) 
 	{ 
-		int V = 5;
-		int E = 8;
-
-		Graph graph = new Graph(V, E); 
-
-		graph.edge[0].src = 0; 
-		graph.edge[0].dest = 1; 
-		graph.edge[0].wt = -1; 
-
-		graph.edge[1].src = 0; 
-		graph.edge[1].dest = 2; 
-		graph.edge[1].wt = 4; 
-
-		graph.edge[2].src = 1; 
-		graph.edge[2].dest = 2; 
-		graph.edge[2].wt = 3; 
-
-		graph.edge[3].src = 1; 
-		graph.edge[3].dest = 3; 
-		graph.edge[3].wt = 2; 
-
-		graph.edge[4].src = 1; 
-		graph.edge[4].dest = 4; 
-		graph.edge[4].wt = 2; 
-
-		graph.edge[5].src = 3; 
-		graph.edge[5].dest = 2; 
-		graph.edge[5].wt = 5; 
-
-		graph.edge[6].src = 3; 
-		graph.edge[6].dest = 1; 
-		graph.edge[6].wt = 1; 
-
-		graph.edge[7].src = 4; 
-		graph.edge[7].dest = 3; 
-		graph.edge[7].wt = -3; 
-
-		for(int i=0; i<5; i++)
-		{
-			System.out.println("Source vertex="+i);
-			graph.solve(graph, i);
-		}
+		Scanner obj=new Scanner(System.in);
+        System.out.println("Enter the number of vertices:");
+        int V = obj.nextInt();
+        System.out.println("Enter the number of edges:");
+        int E = obj.nextInt();
+        Graph graph = new Graph(V, E); 
+        System.out.println("Enter the source vertex, destination vertex and weight of each edge:");
+        for(int i=0;i<E;i++)
+        {
+            graph.edge[i].src = obj.nextInt(); 
+            graph.edge[i].dest = obj.nextInt(); 
+            graph.edge[i].weight = obj.nextInt();
+        }
+        obj.close();
+        for(int i=0;i<V;i++){
+            System.out.println("Source Vertex: "+i);
+            graph.solve(graph, i);
+        }
 	} 
-} 
+}
