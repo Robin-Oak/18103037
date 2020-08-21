@@ -82,3 +82,4 @@ class Graph
         graph.solve(graph, 0);
     }
 }
+//This algo cannot be extended to find all paths between two nodes. That requires Depth First Search.
