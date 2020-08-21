@@ -1,83 +1,50 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
-class kmp
-{ 
-	void lpsarray(String pattern, int m, int lps[]) 
-	{ 
-		int ln = 0, i=1; 
-		lps[0] = 0;
+public class Main
+{
 
-		while (i < m) 
-		{ 
-			if (pattern.charAt(i) == pattern.charAt(ln)) 
-			{ 
-				ln++; 
-				lps[i] = ln; 
-				i++; 
-			} 
-			else 
-			{ 
-				if (ln != 0) 
-				{ 
-					ln = lps[ln-1]; 
-				} 
-				else
-				{ 
-					lps[i] = ln; 
-					i++; 
-				} 
-			} 
-		}
-	}
+    static int nchars = 256;
 
-	int search(String pattern, String text) 
-	{ 
-		int m = pattern.length(); 
-		int N = text.length(); 
+    static boolean areAnagram(char str1[], char str2[])
+    {
+        int count1[] = new int[nchars];
+        Arrays.fill(count1, 0);
+        int count2[] = new int[nchars];
+        Arrays.fill(count2, 0);
+        int i;
 
-		int lps[] = new int[m]; 
-		int j = 0; 
+        for (i = 0; i < str1.length && i < str2.length; i++)
+        {
+            count1[str1[i]]++;
+            count2[str2[i]]++;
+        }
 
-		lpsarray(pattern,m,lps); 
+        if (str1.length != str2.length)
+            return false;
 
-		int i = 0, count = 0, next_i = 0; 
-		
-		while (i < N) 
-		{ 
-			if (pattern.charAt(j) == text.charAt(i)) 
-			{ 
-				j++; 
-				i++; 
-			} 
-			if (j == m) 
-			{ 
-				j = lps[j-1]; 
-				count++; 
+        for (i = 0; i < nchars; i++)
+            if (count1[i] != count2[i])
+                return false;
 
-				if (lps[j]!=0) 
-					i = ++next_i; 
-				j = 0; 
-			} 
+        return true;
+    }
 
-			else if (i < N && pattern.charAt(j) != text.charAt(i)) 
-			{ 
-				if (j != 0) 
-					j = lps[j-1]; 
-				else
-					i = i+1; 
-			} 
-		} 
-		return count; 
-	}
-
-	public static void main(String args[]) 
-	{ 
-		Scanner obj = new Scanner(System.in);
-		System.out.println("Enter text ");
-		String text = obj.nextLine();
-		System.out.println("Enter the pattern to be searched for ");
-		String pattern = obj.nextLine();
-		int count = new kmp().search(pattern,text); 
-		System.out.println(count); 
-	}
+    public static void main(String args[])
+    {
+        Scanner obj = new Scanner(System.in);
+        System.out.println("Enter string ");
+        String text = obj.nextLine();
+        System.out.println("Enter pattern ");
+        String pattern = obj.nextLine();
+        int count=0;
+        char str2[] = pattern.toCharArray();
+        for(int i=0, j=pattern.length(); j<=text.length(); i++, j++)
+        {
+            char str1[] = text.substring(i, j).toCharArray();
+            if (areAnagram(str1, str2))
+                count++;
+        }
+        System.out.println(count);
+    }
 }
