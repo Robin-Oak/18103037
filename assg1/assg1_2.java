@@ -1,84 +1,70 @@
+
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
-class Graph
+public class Main
 {
-    class Edge
+    static int prefix(HashSet<String> vec, String s)
     {
-        int src, dest, wt;
-        Edge()
+        for (String i : vec)
         {
-            src = dest = wt = 0;
-        }
-    };
-
-    int V, E;
-    Edge edge[];
-
-    Graph(int v, int e)
-    {
-        V = v;
-        E = e;
-        edge = new Edge[e];
-        for (int i = 0; i < e; ++i)
-            edge[i] = new Edge();
-    }
-
-    void solve(Graph graph, int src)
-    {
-        int V = graph.V, E = graph.E;
-        int dist[] = new int[V];
-
-        for (int i = 0; i < V; ++i)
-            dist[i] = Integer.MAX_VALUE;
-        dist[src] = 0;
-
-        for (int i = 1; i < V; ++i) {
-            for (int j = 0; j < E; ++j) {
-                int u = graph.edge[j].src;
-                int v = graph.edge[j].dest;
-                int wt = graph.edge[j].wt;
-                if (dist[u] != Integer.MAX_VALUE && dist[u] + wt < dist[v])
-                    dist[v] = dist[u] + wt;
+            int count=0;
+            for(int j=0;j<i.length() && j<s.length();j++, count++)
+            {
+                if(i.charAt(j) != s.charAt(j)) break;
             }
+            if(count==i.length()) return count;
         }
-
-        for (int j = 0; j < E; ++j) {
-            int u = graph.edge[j].src;
-            int v = graph.edge[j].dest;
-            int wt = graph.edge[j].wt;
-            if (dist[u] != Integer.MAX_VALUE && dist[u] + wt < dist[v]) {
-                System.out.println("Negative cycles exist");
-                return;
-            }
-        }
-        printit(dist, V);
-    }
-
-    void printit(int dist[], int V)
-    {
-        System.out.println("Vertex distance from Source");
-        for (int i = 0; i < V; ++i)
-            System.out.println(i + "\t\t" + dist[i]);
+        return -1;
     }
 
     public static void main(String[] args)
     {
-        Scanner obj=new Scanner(System.in);
-        System.out.println("Enter the number of vertices:");
-        int V = obj.nextInt();
-        System.out.println("Enter the number of edges:");
-        int E = obj.nextInt();
-        Graph graph = new Graph(V, E);
-        System.out.println("Enter the source vertex, destination vertex and weight of each edge:");
-        for(int i=0;i<E;i++)
+        Scanner input=new Scanner(System.in);
+        System.out.println("Enter paragraph: ");
+        String para=input.nextLine();
+        System.out.println("Enter size of vector: ");
+        int vecSize=input.nextInt();
+        HashSet<String> vec=new HashSet<String>();
+        System.out.println("Enter "+vecSize+" Strings:");
+        for(int i=0;i<vecSize;i++)
         {
-            graph.edge[i].src = obj.nextInt();
-            graph.edge[i].dest = obj.nextInt();
-            graph.edge[i].wt = obj.nextInt();
+            String s=input.next();
+            vec.add(s);
         }
-        obj.close();
-        graph.solve(graph, 0);
+        input.close();
+        int n=para.length();
+        int j=0;
+        System.out.println("Paragraph after formatting:");
+        String ours="";
+        while(j<n)
+        {
+            String s="";
+            while(j<n && para.charAt(j)!=' ')
+            {
+                s+=para.charAt(j);
+                j++;
+            }
+            int temp=prefix(vec, s);
+            if(temp!=-1)
+            {
+                ours+=s.charAt(0);
+                for(int i=1;i<temp;i++)
+                {
+                    ours+='*';
+                }
+                for(int i=temp;i<s.length();i++) ours+=s.charAt(i);
+            }
+            else
+            {
+                ours+=s;
+            }
+            if(j<n && para.charAt(j)==' ')
+            {
+                ours+=" ";
+            }
+            j++;
+        }
+        System.out.println(ours);
     }
+
 }
