@@ -1,5 +1,3 @@
-package com.robin;
-
 import java.util.Scanner;
 
 public class Main {
