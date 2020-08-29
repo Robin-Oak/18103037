@@ -1,6 +1,5 @@
 import java.util.Scanner;
-import java.util.Arrays;
-//12124 milliseconds
+//14 milliseconds
 
 //Let us define a couple of sets of integers, and let Java compute the set-theoretical
 //operations (union, intersection and complement). We first fix our universe, which
@@ -112,7 +111,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-		long start = System.currentTimeMillis();
+		
         Scanner obj = new Scanner (System.in);
         System.out.println("No. of elements in first set:");
         int n1=obj.nextInt();
@@ -137,6 +136,7 @@ public class Main {
                 arr2[i]=obj.nextInt();
             }
         }
+		long start = System.currentTimeMillis();
         arr1=finetune(arr1); //sort and handle repetitions
         arr2=finetune(arr2);
         union(arr1, arr2);
