@@ -1,10 +1,10 @@
 import java.util.*;
-//9258 milliseconds
+//6 milliseconds
 
 public class Main {
 
     public static void main(String[] args) {
-        long start = System.currentTimeMillis();
+        
         Set<Integer> s1=new HashSet<Integer>();
         Set<Integer> s2=new HashSet<Integer>();
         Set<Integer> ref=new HashSet<Integer>();
@@ -32,6 +32,7 @@ public class Main {
             }
             s2.add(x);
         }
+		long start = System.currentTimeMillis();
         Set<Integer> orion=new HashSet<Integer>(s1);
         orion.addAll(s2);
         System.out.println("Union: "+orion);
