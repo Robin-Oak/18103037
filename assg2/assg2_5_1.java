@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
-//9258 milliseconds
+
 //Let us define a couple of sets of integers, and let Java compute the set-theoretical
 //operations (union, intersection and complement). We first fix our universe, which
 //will consist of the 11 elements, Universe = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A and B
