@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
+//12124 milliseconds
 
 //Let us define a couple of sets of integers, and let Java compute the set-theoretical
 //operations (union, intersection and complement). We first fix our universe, which
