@@ -52,7 +52,3 @@ public class Main {
         }
     }
 }
-//Integer n=new Integer(string);
-//valueOf
-//int a=Integer.valueOf(string);
-//string buffer class
