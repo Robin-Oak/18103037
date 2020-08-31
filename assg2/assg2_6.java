@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner obj = new Scanner(System.in);
+        System.out.println("Enter number (positive number)");
         String n = obj.nextLine();
         int flag=0;
         do {
@@ -24,7 +25,10 @@ public class Main {
             System.out.println(nk + " is beyond integer limits." +
                     " Program entered into self destruct mode.");
         }
+        else if(nk==0)
+            System.out.println(0);
         else {
+
             while (nk < 0) {
                 System.out.println("Negative numbers are so not allowed. Better chose a positive number. Try again?");
                 nk = obj.nextInt();
