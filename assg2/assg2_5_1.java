@@ -5,7 +5,7 @@ import java.util.Scanner;
 //operations (union, intersection and complement). We first fix our universe, which
 //will consist of the 11 elements, Universe = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, A and B
 //will be entered by users.
-public class Main {
+public class assg2_5_1 {
 
     public static void intersection(int []a1, int[] a2) {
         int n1=a1.length;
