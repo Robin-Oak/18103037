@@ -1,7 +1,7 @@
 import java.util.*;
 //6 milliseconds
 
-public class Main {
+public class assg2_5_2 {
 
     public static void main(String[] args) {
         
