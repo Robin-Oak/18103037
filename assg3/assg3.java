@@ -18,7 +18,7 @@ import java.util.*;
 
 import static com.robin.Main.Test.isValid;
 
-public class Main {
+public class assg3 {
 
     public static void main(String[] args) throws IOException {
         Set<String> completed = new HashSet<>();
