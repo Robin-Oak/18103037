@@ -16,17 +16,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-import static com.robin.Main.Test.isValid;
+import static com.robin.Assg3.Test.isValid;
 
-public class assg3 {
+public class Assg3 {
 
     public static void main(String[] args) throws IOException {
         Set<String> completed = new HashSet<>();
         Queue<String> todo = new PriorityQueue<>();
         System.out.println("Enter link of base website");
         String url;
-        Scanner obj = new Scanner(System.in);
-        url = obj.nextLine();
+        Scanner sc = new Scanner(System.in);
+        url = sc.nextLine();
         todo.add(url);
 
         XSSFWorkbook thingie = new XSSFWorkbook();
