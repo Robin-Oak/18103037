@@ -104,9 +104,9 @@ public class assg3 {
             Object[] objarray = gotten.get(key);
             int cellid = 0;
 
-            for (Object obj : objarray) {
+            for (Object oj : objarray) {
                 Cell cell = row.createCell(cellid++);
-                cell.setCellValue((String) obj);
+                cell.setCellValue((String) oj);
             }
         }
         FileOutputStream finalle = new FileOutputStream(new File("C:/Users/hp/Desktop/WebCrawler_assg3.xlsx"));
