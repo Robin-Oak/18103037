@@ -1,4 +1,16 @@
-output= 65535
-reson: range of int is -2147483648 to 2147483647, range of byte is -128 to 127. -1 is included in both, hence conversion from int to byte doesn't result
-in any change of value. The char data type is a single 16-bit Unicode character. It has a minimum value of '\u0000' (or 0) and a maximum value of '\uffff'
-(or 65,535 inclusive). Hence, on conversion of char to int, the char changes to the largest value it could hold, 65535.
+class assg4_2 {
+
+public static void main(String[] args){
+    int i=-1;
+    byte b=(byte) i;//b=-1
+    char c=(char) b;//c=￶￶￶￶65535
+    int n=(int) c;//n=65535
+    System.out.println(n);   
+}
+
+}
+ thus output= 65535
+/*Range of int is -2147483648 to 2147483647, a byte has a value between -128 to 127, so when you cast -1 to byte , the result is still -1.
+The char data type is a single 16-bit Unicode character. It has a minimum value of '\u0000' (or 0) and a maximum value of '\uffff'
+(or 65,535 inclusive), so when you cast a negative to char, the result is the same as subtracting that number from 65536, resulting in 65535.
+When we convert byte to int it converts 65535 to int which is 65535 only.*/
