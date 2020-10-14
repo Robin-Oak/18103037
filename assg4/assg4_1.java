@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class assg4_1 {
 
     public static boolean isValid(String[] crops, int i, int j) {
         return !(
